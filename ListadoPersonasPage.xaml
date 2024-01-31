@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListPerson_1._3_Grupo__4.ListadoPersonasPage">
+
+    <StackLayout>
+        <StackLayout>
+            <ListView ItemsSource="{Binding PersonasList}" HasUnevenRows="True">
+                <ListView.Header>
+                    <StackLayout BackgroundColor="LightGray">
+                        <Label Text="Listado de Personas" FontSize="Large" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout HorizontalOptions="StartAndExpand">
+                                        <Label Text="{Binding Nombre}" FontSize="Medium" />
+                                        <Label Text="{Binding Apellido}" FontSize="Medium" />
+                                        <Label Text="{Binding Edad, StringFormat='Edad: {0}'}" FontSize="Medium" />
+                                        <Label Text="{Binding Correo}" FontSize="Medium" />
+                                        <Label Text="{Binding Direccion}" FontSize="Medium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                        <Button Text="Editar" Clicked="Editar_Clicked" CommandParameter="{Binding .}" FontSize="Small" HeightRequest="40" Margin="0,0,5,0"/>
+                                        <Button Text="Eliminar" Clicked="Eliminar_Clicked" CommandParameter="{Binding .}" FontSize="Small" HeightRequest="40" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        <Button
+            Text="Registrar Nueva Persona"
+            Clicked="RegistrarNuevaPersona_Clicked"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="EndAndExpand"
+            Margin="10,10,10,20" />
+    </StackLayout>
+
+</ContentPage>
